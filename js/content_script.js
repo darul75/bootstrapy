@@ -5,9 +5,23 @@ chrome.runtime.onMessage.addListener(
     console.log(sender.tab ?
                 "from a content script:" + sender.tab.url :
                 "from the extension");
-    var elt = $(request.bootstrapSelector);
+    var styles = request.styles;
+    if (request.type === 'set') {
+      var index = styles.indexOf(request.style);
+      if (index > -1) {
+          styles.splice(index, 1);
+          for (var i=0;i<styles.length;i++) {
+            $(request.bootstrapSelector).removeClass(styles[i]);  
+          }
+      }
 
-    elt.toggleClass(request.style);    
+      $(request.bootstrapSelector).toggleClass(request.style);
+    }
+    else if (request.type === 'unset') {
+      for (var i=0;i<styles.length;i++) {
+        $(request.bootstrapSelector).removeClass(styles[i]);  
+      }      
+    }    
 
     /*if (request.bootstrapSelector == "hello")
       sendResponse({farewell: "goodbye"});*/

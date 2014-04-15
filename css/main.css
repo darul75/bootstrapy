@@ -8,6 +8,7 @@
 html, body {
   margin: 0;
   height: 100%;
+  width:400px;
 }
 
 body ::-webkit-scrollbar {
@@ -18,7 +19,7 @@ body ::-webkit-scrollbar {
 body ::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, .1);
   background-clip: padding-box;
-  border: solid transparent;
+  /*border: solid transparent;*/
   min-height: 28px;
   padding: 100px 0 0;
   box-shadow: inset 1px 1px 0 rgba(0,0,0,.1),inset 0 -1px 0 rgba(0,0,0,.07);
@@ -42,9 +43,9 @@ body ::-webkit-scrollbar-corner {
 
 body {
   padding: 0 15px 15px 15px;
-  overflow: hidden;
-  background: url(../img/google_drive_bg.png) no-repeat center center,
-              -webkit-linear-gradient(bottom, #eee, rgba(255,255,255,0));
+  /*overflow: hidden;*/
+  /*background: url(../img/google_drive_bg.png) no-repeat center center,
+              -webkit-linear-gradient(bottom, #eee, rgba(255,255,255,0));*/
   background-size: 270px 215px, 100%;
   font-family: 'Droid Sans', sans-serif;
 }
@@ -152,17 +153,33 @@ progress {
 }
 
 .blue, .blue:hover { 
-  background-color: blue;
+  background-color: rgba(27, 27, 185, 0.5);
+}
+
+.blue.activated { 
+  background-color: blue !important;
 }
 
 .yellow, .yellow:hover { 
-  background-color: yellow;
+  background-color: rgba(160, 185, 27, 0.5);
+}
+
+.yellow.activated { 
+  background-color: yellow !important;
 }
 
 .green, .green:hover { 
-  background-color: green;
+  background-color: rgba(40, 185, 27, 0.5);
+}
+
+.green.activated { 
+  background-color: green !important;
 }
 
 .red, .red:hover { 
-  background-color: red;
+  background-color: rgba(185, 27, 109, 0.5);
+}
+
+.red.activated { 
+  background-color: red !important;
 }
