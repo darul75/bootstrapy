@@ -1,0 +1,19 @@
+
+.blue { 
+	border: 1px solid #ddd !important;
+	border: 1px solid rgba(86,61,124,0.2) !important;
+}
+
+.yellow { 
+	border: 1px solid #DE3838 !important;
+}
+
+.green { 
+	border: 1px solid #10BF3E !important;
+}
+
+.red { 
+	border: 1px solid #382ECF !important;
+}
+
+

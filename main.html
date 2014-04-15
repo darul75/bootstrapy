@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html data-ng-app="bootstrapyApp" ng-csp="">
+<head>
+<meta charset="utf-8" />
+<title>Bootstrapy</title>
+<link rel="stylesheet" media="all" href="bower_components/bootstrap/dist/css/bootstrap.css">
+<link rel="stylesheet" media="all" href="css/bootstrapy.css">
+<link rel="stylesheet" media="all" href="css/main.css">
+<base target="_blank">
+</head>
+<body data-ng-controller="MainController">
+
+<section id="main">
+  <nav>
+    <h2>Bootstrapy</h2>
+    <!-- <button id="authorize-button" class="btn" data-ng-click="toggleAuth(true)">{{authButtonLabel()}}</button>
+    <button class="btn" data-ng-click="fetchDocs(flase)">Refresh</button>
+    <button class="btn" id="close-button" title="Close">x</button> -->
+  </nav>
+
+  <progress></progress>
+
+  <form role='form'>
+
+    <div ng-repeat='rule in rules' class='form-group'>
+      <label for="gridRows">{{rule.name}}</label>
+      <button ng-repeat='color in colors' ng-click="select(rule.selector, color)" type="button" id='gridRows' class="btn btn-default {{color}}"></button>
+    </div>    
+    
+  </form>
+
+</section>
+
+<script src="bower_components/angular/angular.min.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>

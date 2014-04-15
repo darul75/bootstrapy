@@ -1,0 +1,29 @@
+{
+  "name": "Bootstrapy",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "TODO.",
+  "minimum_chrome_version": "29",
+  "icons": {
+    "128": "icon_128.png"
+  },  
+  "browser_action": {
+    "default_icon": "icon_128.png",
+    "default_popup": "main.html"
+  },
+  "content_scripts": [ {        
+    "js": [ 
+      "bower_components/jquery/jquery.min.js",          
+      "js/content_script.js"          
+    ],
+    "css": [
+      "css/bootstrapy.css"
+    ],
+    "matches": [ "http://*/*", "https://*/*" ]
+  }],
+  "permissions": [
+    "tabs",        
+    "http://*/",
+    "https://*/"
+  ]  
+}
