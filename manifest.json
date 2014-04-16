@@ -2,18 +2,18 @@
   "name": "Bootstrapy",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "TODO.",
+  "description": "Boostrap Style Highlighter with Chrome extension.",
   "minimum_chrome_version": "29",
   "icons": {
-    "128": "icon_128.png"
+    "128": "favicon.png"
   },  
   "browser_action": {
-    "default_icon": "icon_128.png",
+    "default_icon": "favicon.png",
     "default_popup": "main.html"
   },
   "content_scripts": [ {        
     "js": [ 
-      "bower_components/jquery/jquery.min.js",          
+      "bower_components/jquery/jquery-1.8.3.min.js",
       "js/content_script.js"          
     ],
     "css": [

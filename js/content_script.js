@@ -1,4 +1,4 @@
-var port = chrome.runtime.connect();
+var port = chrome.runtime.connect({name: "bootstrapy"});
 
 chrome.runtime.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -21,10 +21,23 @@ chrome.runtime.onMessage.addListener(
       for (var i=0;i<styles.length;i++) {
         $(request.bootstrapSelector).removeClass(styles[i]);  
       }      
-    }    
-
-    /*if (request.bootstrapSelector == "hello")
-      sendResponse({farewell: "goodbye"});*/
+    }
+    else if (request.type === 'none') {
+      var rules = request.rules;
+      for (var i=0;i<rules.length;i++) {
+        for (var j=0;j<styles.length;j++) {
+          $(rules[i].selector).removeClass(styles[j]);
+        } 
+      }
+    }
+    else if (request.type === 'all') {
+      var rules = request.rules;
+      for (var i=0;i<rules.length;i++) {        
+        $(rules[i].selector).addClass(rules[i].color);        
+      }
+    }
+    
+    sendResponse({job: "done"});
 });
 
 /*window.addEventListener("message", function(event) {

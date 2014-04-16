@@ -36,8 +36,8 @@
         </div>
 
         <div class="col-xs-7">
-          <button ng-click="selectALl()" rel='tooltip' type="button" class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="right" title="remove">All</button>
-          <button ng-click="selectNode()" rel='tooltip' type="button" class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="right" title="remove">None</button>
+          <button ng-click="selectAll()" rel='tooltip' type="button" class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="top" title="highlight all">All</button>
+          <button ng-click="selectNone()" rel='tooltip' type="button" class="btn btn-xs btn-success" data-toggle="tooltip" data-placement="top" title="remove all">None</button>
         </div>
 
       </div>
@@ -49,14 +49,14 @@
     <div class="panel-body">
       <div ng-repeat='rule in rules' class='row form-group'>  
 
-        <div class="col-xs-5">
+        <div class="col-xs-6">
 
             <label for="gridRows">{{rule.name}}</label>
 
         </div>
-        <div class="col-xs-7">
+        <div class="col-xs-6">
           <button ng-repeat='color in colors' ng-click="select(rule.selector, color)" type="button" id='gridRows' class="btn btn-default {{color}} {{rule.color == color && 'activated' || ''}}"></button>
-          <button ng-click="select(rule.selector, '')" rel='tooltip' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="right" title="remove"></button>
+          <button ng-click="select(rule.selector, '')" rel='tooltip' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="remove"></button>
 
         </div>  
       

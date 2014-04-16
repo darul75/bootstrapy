@@ -1,21 +1,21 @@
 
-.blue { 
+.bootstrapy-blue { 
 	border: 1px solid #ddd !important;
 	border: 1px solid rgba(86,61,124,0.2) !important;
 	background-color: rgba(27, 27, 185, 0.5) !important;
 }
 
-.yellow { 
+.bootstrapy-yellow { 
 	border: 1px solid #DE3838 !important;
 	background-color: rgba(160, 185, 27, 0.5) !important;
 }
 
-.green { 
+.bootstrapy-green { 
 	border: 1px solid #10BF3E !important;
 	background-color: rgba(40, 185, 27, 0.5) !important;	
 }
 
-.red { 
+.bootstrapy-red { 
 	border: 1px solid #382ECF !important;
 	background-color: rgba(185, 27, 109, 0.5) !important;	
 }

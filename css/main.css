@@ -44,8 +44,8 @@ body ::-webkit-scrollbar-corner {
 body {
   padding: 0 15px 15px 15px;
   /*overflow: hidden;*/
-  /*background: url(../img/google_drive_bg.png) no-repeat center center,
-              -webkit-linear-gradient(bottom, #eee, rgba(255,255,255,0));*/
+  /*background: url(../img/img.jpeg) no-repeat center center,
+              -webkit-linear-gradient(bottom, #eee, rgba(255,255,255,0));*/*/
   background-size: 270px 215px, 100%;
   font-family: 'Droid Sans', sans-serif;
 }
@@ -152,34 +152,34 @@ progress {
   float: right;
 }
 
-.blue, .blue:hover { 
+.bootstrapy-blue, .bootstrapy-blue:hover { 
   background-color: rgba(27, 27, 185, 0.5);
 }
 
-.blue.activated { 
+.bootstrapy-blue.activated { 
   background-color: blue !important;
 }
 
-.yellow, .yellow:hover { 
+.bootstrapy-yellow, .bootstrapy-yellow:hover { 
   background-color: rgba(160, 185, 27, 0.5);
 }
 
-.yellow.activated { 
+.bootstrapy-yellow.activated { 
   background-color: yellow !important;
 }
 
-.green, .green:hover { 
+.bootstrapy-green, .bootstrapy-green:hover { 
   background-color: rgba(40, 185, 27, 0.5);
 }
 
-.green.activated { 
+.bootstrapy-green.activated { 
   background-color: green !important;
 }
 
-.red, .red:hover { 
+.bootstrapy-red, .bootstrapy-red:hover { 
   background-color: rgba(185, 27, 109, 0.5);
 }
 
-.red.activated { 
+.bootstrapy-red.activated { 
   background-color: red !important;
 }
