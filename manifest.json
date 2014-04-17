@@ -2,7 +2,7 @@
   "name": "Bootstrapy",
   "version": "0.0.1",
   "manifest_version": 2,
-  "description": "Boostrap Style Highlighter with Chrome extension.",
+  "description": "Boostrap style highlighter with Chrome extension.",
   "minimum_chrome_version": "29",
   "icons": {
     "128": "favicon.png"

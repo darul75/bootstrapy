@@ -6,14 +6,30 @@ chrome.runtime.onMessage.addListener(
                 "from a content script:" + sender.tab.url :
                 "from the extension");
     var styles = request.styles;
+    var items = $(request.bootstrapSelector);
+
     if (request.type === 'set') {
       var index = styles.indexOf(request.style);
       if (index > -1) {
           styles.splice(index, 1);
-          for (var i=0;i<styles.length;i++) {
-            $(request.bootstrapSelector).removeClass(styles[i]);  
+          for (var i=0;i<styles.length;i++) {            
+            items.removeClass(styles[i]);
           }
       }
+
+      var jsClass = 'jsClass' + request.bootstrapSelector.replace('.', '');
+      $('.'+jsClass).remove();
+
+      for (var i=0;i<items.length;i++) {
+        var item = $(items[i]);
+        var css = $("<div class='bootstrapy-helper-box "+ jsClass +"'><div class='bootstrapy-helper-box-label'>" + request.bootstrapSelector + "</div></div>");
+        /*css.css({
+            'top': item.position().top + 'px',
+            'left': item.position().left + 'px',
+        });*/
+
+        $(request.bootstrapSelector).prepend(css);
+      }      
 
       $(request.bootstrapSelector).toggleClass(request.style);
     }
