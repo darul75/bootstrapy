@@ -17,39 +17,59 @@ chrome.runtime.onMessage.addListener(
           }
       }
 
-      var jsClass = 'jsClass' + request.bootstrapSelector.replace('.', '');
+      var jsClass = 'jsClass' + request.name.replace('.', '');
       $('.'+jsClass).remove();
 
       for (var i=0;i<items.length;i++) {
         var item = $(items[i]);
-        var css = $("<div class='bootstrapy-helper-box "+ jsClass +"'><div class='bootstrapy-helper-box-label'>" + request.bootstrapSelector + "</div></div>");
+        var css = $("<div class='bootstrapy-helper-box "+ jsClass +"'><div class='bootstrapy-helper-box-label'>" + request.name + "</div></div>");
         /*css.css({
             'top': item.position().top + 'px',
             'left': item.position().left + 'px',
         });*/
 
-        $(request.bootstrapSelector).prepend(css);
-      }      
+        $(item).prepend(css);
+      }
 
       $(request.bootstrapSelector).toggleClass(request.style);
     }
     else if (request.type === 'unset') {
+      var jsClass = 'jsClass' + request.name.replace('.', '');
+      $('.'+jsClass).remove();
+      
       for (var i=0;i<styles.length;i++) {
         $(request.bootstrapSelector).removeClass(styles[i]);  
-      }      
+      }
     }
     else if (request.type === 'none') {
+      
       var rules = request.rules;
       for (var i=0;i<rules.length;i++) {
-        for (var j=0;j<styles.length;j++) {
-          $(rules[i].selector).removeClass(styles[j]);
-        } 
+        var rule = rules[i];
+        var jsClass = 'jsClass' + rule.name.replace('.', '');
+        $('.'+jsClass).remove();
+
+        for (var j=0;j<styles.length;j++) {          
+          $(rule.selector).removeClass(styles[j]);
+        }
       }
     }
     else if (request.type === 'all') {
       var rules = request.rules;
-      for (var i=0;i<rules.length;i++) {        
-        $(rules[i].selector).addClass(rules[i].color);        
+      
+      for (var i=0;i<rules.length;i++) {
+        var rule = rules[i];
+        var jsClass = 'jsClass' + rule.name.replace('.', '');
+        $('.'+jsClass).remove();
+        items = $(rule.selector);
+        for (var j=0;j<items.length;j++) {
+          var item = $(items[j]);
+          var css = $("<div class='bootstrapy-helper-box "+ jsClass +"'><div class='bootstrapy-helper-box-label'>" + rule.name + "</div></div>");
+
+          $(item).prepend(css);
+        }
+
+        $(rule.selector).addClass(rule.color);        
       }
     }
     

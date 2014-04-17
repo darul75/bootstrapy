@@ -58,8 +58,8 @@
             <label for="gridRows">{{rule.name}}</label>
         </div>
         <div class="col-xs-6">
-          <button ng-repeat='color in colors' ng-click="select(rule.selector, color)" type="button" id='gridRows' class="btn btn-default {{color}} {{rule.color == color && 'activated' || ''}}"></button>
-          <button ng-click="select(rule.selector, '')" rel='tooltip' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="remove"></button>
+          <button ng-repeat='color in colors' ng-click="select(rule, color)" type="button" id='gridRows' class="btn btn-default {{color}} {{rule.color == color && 'activated' || ''}}"></button>
+          <button ng-click="select(rule, '')" rel='tooltip' type="button" class="btn btn-default" data-toggle="tooltip" data-placement="top" title="remove"></button>
 
         </div>  
       

@@ -8,7 +8,7 @@ var bootstrapyApp = angular.module('bootstrapyApp', ['angular-storage']);
 
 bootstrapyApp.constant('rules', [
       { name: '.row', selector: '.row' },
-      { name: '.col-*', selector: 'div[class*=col-]' },    
+      { name: '.col', selector: 'div[class*=col-]' },    
 
       { name: '.table', selector: '.table' },
       { name: '.table-striped', selector: '.table-striped' },
@@ -45,19 +45,19 @@ bootstrapyApp.constant('rules', [
       { name: 'h6', selector: 'h6' },
 
       { name: '.lead', selector: '.lead' },
-      { name: '<small>', selector: 'small' },
-      { name: '<strong>', selector: 'strong' },
-      { name: '<em>', selector: 'em' },
+      { name: 'small', selector: 'small' },
+      { name: 'strong', selector: 'strong' },
+      { name: 'em', selector: 'em' },
 
       { name: '.text-left', selector: '.text-left' },
       { name: '.text-center', selector: '.text-center' },
       { name: '.text-right', selector: '.text-right' },
       { name: '.text-justify', selector: '.text-justify' },
 
-      { name: '<abbr>', selector: 'abbr' },
-      { name: '<address>', selector: 'address' },
-      { name: '<blockquote>', selector: 'blockquote' },
-      { name: '<footer>', selector: 'footer' },
+      { name: 'abbr', selector: 'abbr' },
+      { name: 'address', selector: 'address' },
+      { name: 'blockquote', selector: 'blockquote' },
+      { name: 'footer', selector: 'footer' },
 
       { name: '.active', selector: '.active' },
       { name: '.success', selector: '.success' },
@@ -147,7 +147,7 @@ function MainController(scope, $http, asStorage, rules) {
       scope.rules.forEach(function(rule) {
 
         if (rule.color && rule.color !== "") {
-          scope.select(rule.selector, rule.color, true);          
+          scope.select(rule, rule.color, true);
         }
 
       });
@@ -169,22 +169,23 @@ function MainController(scope, $http, asStorage, rules) {
     sendMessage({type:'all', rules: scope.rules, styles:scope.colors});    
   };
 
-  scope.select = function(bootstrapSelector, style, init) {
-    var rule = null;
-
+  scope.select = function(rule, style, init) {
+    
+    var bootstrapSelector = rule.selector;
+    var name = rule.name;
+    
     for (var i=0;i<scope.rules.length;i++) {
 
-      var rule = scope.rules[i];
-      if (rule.selector !== bootstrapSelector)
+      var ruleItem = scope.rules[i];
+      if (ruleItem.selector !== bootstrapSelector)
         continue;
       
-      if (rule.selector === bootstrapSelector) {
-        rule = scope.rules[i];
+      if (ruleItem.selector === bootstrapSelector) {        
         if (!init) {
-          if (rule.color !== style)        
-            rule.color = style;
+          if (ruleItem.color !== style)        
+            ruleItem.color = style;
           else
-            rule.color = '';
+            ruleItem.color = '';
         }
         break;
       }
@@ -192,7 +193,7 @@ function MainController(scope, $http, asStorage, rules) {
 
     var type = style === "" ? 'unset' : 'set';
 
-    sendMessage({type:type, bootstrapSelector: bootstrapSelector, style: style, styles:scope.colors});       
+    sendMessage({type: type, name: name, bootstrapSelector: bootstrapSelector, style: style, styles: scope.colors});       
 
   };
 
