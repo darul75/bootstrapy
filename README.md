@@ -1,4 +1,4 @@
-Bootstrapy [![NPM version](https://badge.fury.io/js/bootstrapy)](http://badge.fury.io/js/bootstrapy) [![Total views](https://sourcegraph.com/api/repos/github.com/darul75/bootstrapy/counters/views.png)](https://sourcegraph.com/github.com/darul75/bootstrapy) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/darul75/bootstrapy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Bootstrapy [![Total views](https://sourcegraph.com/api/repos/github.com/darul75/bootstrapy/counters/views.png)](https://sourcegraph.com/github.com/darul75/bootstrapy) [![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/darul75/bootstrapy/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
 =====================
 
 Chrome extension.
