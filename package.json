@@ -1,0 +1,25 @@
+{
+  "name": "boostrapy",
+  "description": "Boostrap style highlighter, highlights CSS usage on page.",
+  "version": "0.0.1",
+  "author": {
+    "name": "Julien Valéry",
+    "email": "darul75@gmail.com"
+  },
+  "homepage": "https://github.com/darul75/bootstrapy",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/darul75/bootstrapy.git"
+  },  
+  "keywords": [    
+    "boostrap",
+    "css",
+    "chrome",    
+    "test"
+  ],
+  "bugs": {
+    "url": "https://github.com/darul75/boostrapy/issues"
+  },
+  "readmeFilename": "README.md",
+  "license": "MIT"
+}
