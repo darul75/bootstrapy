@@ -42,12 +42,9 @@ body ::-webkit-scrollbar-corner {
 }
 
 body {
-  padding: 0 15px 15px 15px;
-  /*overflow: hidden;*/
-  /*background: url(../img/img.jpeg) no-repeat center center,
-              -webkit-linear-gradient(bottom, #eee, rgba(255,255,255,0));*/*/
-  background-size: 270px 215px, 100%;
-  font-family: 'Droid Sans', sans-serif;
+  padding: 0 15px 15px 15px;  
+  /*background-size: 270px 215px, 100%;*/
+  /*font-family: 'Droid Sans', sans-serif;*/
 }
 
 body.dropping > #main {
@@ -131,13 +128,13 @@ nav:hover #close-button {
   opacity: 1;
 }
 
-#close-button {
+/*#close-button {
   float: right;
   padding: 0 5px 2px 5px;
   font-weight: bold;
   opacity: 0;
   -webkit-transition: all 0.3s ease-in-out;
-}
+}*/
 
 .uploading progress {
   visibility: visible;

@@ -55,13 +55,17 @@ chrome.runtime.onMessage.addListener(
       }
     }
     else if (request.type === 'all') {
-      var rules = request.rules;
+      var rules = request.rules;          
       
       for (var i=0;i<rules.length;i++) {
         var rule = rules[i];
         var jsClass = 'jsClass' + rule.name.replace('.', '');
         $('.'+jsClass).remove();
         items = $(rule.selector);
+        for (var k=0;k<styles.length;k++) {            
+            items.removeClass(styles[k]);
+        }
+
         for (var j=0;j<items.length;j++) {
           var item = $(items[j]);
           var css = $("<div class='bootstrapy-helper-box "+ jsClass +"'><div class='bootstrapy-helper-box-label'>" + rule.name + "</div></div>");
