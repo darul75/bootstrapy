@@ -14,26 +14,33 @@ function MainController(scope, $http, asStorage, rules) {
 
   scope.colors = ['bootstrapy-blue', 'bootstrapy-yellow', 'bootstrapy-green', 'bootstrapy-red'];
 
-  scope.rules = rules;
+  scope.rules = rules.items;
+  scope.version = rules.version;
 
   scope.init = function() {
 
     var data = asStorage.get('rules');
 
     if (data) {
-      scope.rules = data;
-      // reload all
-      scope.selectNone(true);
-      
-      scope.rules.forEach(function(rule) {
 
-        if (rule.color && rule.color !== "") {
-          scope.select(rule, rule.color, true);
-        }
+      if (data.version === scope.version) {
+        scope.rules = data.items;
+        // reload all
+        scope.selectNone(true);
+        
+        scope.rules.forEach(function(rule) {
 
-      });
+          if (rule.color && rule.color !== "") {
+            scope.select(rule, rule.color, true);
+          }
 
-    }
+        });
+      }
+      else {
+        asStorage.remove('rules');
+      }
+
+    } 
 
   };
 
@@ -86,7 +93,10 @@ function MainController(scope, $http, asStorage, rules) {
 
         chrome.tabs.sendMessage(tabs[0].id, options, function(response) {
           if (response && response.job === 'done')
-            asStorage.set('rules', scope.rules);
+            asStorage.set('rules', {
+              version: scope.version,
+              items: scope.rules
+            });
         });
       });
 
@@ -101,7 +111,10 @@ function MainController(scope, $http, asStorage, rules) {
 
 MainController.$inject = ['$scope', '$http', 'asStorage', 'rules']; // For code minifiers.
 
-bootstrapyApp.constant('rules', [
+bootstrapyApp.constant('rules', 
+  {
+    version: '0.0.1',
+    items: [
       { name: '.row', selector: '.row' },
       { name: '.col', selector: 'div[class*=col-]' },
 
@@ -228,6 +241,7 @@ bootstrapyApp.constant('rules', [
       { name: '.text-hide', selector: '.text-hide' }        
 
     ]
+  }
   
   );
 
